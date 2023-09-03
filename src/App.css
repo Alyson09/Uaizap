@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.Inputs{
+    background-color: blue;
+    display: inline;
+    display: flex;
+    margin-top: 100%;
+    align-items: end;
+    width: 100%;
+    align-content: space-evenly;
+}
+
+.usu{
+    font-size: large;
+    border-radius: 5px;
+}
+
+.text{
+    font-size: large;
+    border-radius: 5px;
+}
+
+.Button{
+    font-size: large;
+    border-radius: 5px;
+}
