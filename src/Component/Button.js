@@ -2,8 +2,17 @@ import React from "react";
 import '../App.css';
 
 class Button extends React.Component{
-    onClickbutton= () =>{
-        alert("Enviado!")
+    constructor(props){
+    super(props);
+    this.state={
+            mensagem: '',
+        };
+    }
+
+    onClickbutton = () =>{
+        const novaMensagem = "Mensagem enviada!";
+        this.setState({mensagem: novaMensagem});
+        this.props.enviarMensagemParaApp (novaMensagem);
     }
     render(){
         return(
