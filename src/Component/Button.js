@@ -1,5 +1,19 @@
 import React from "react";
-import '../App.css';
+import styled from 'styled-components';
+
+const StyledButton = styled.button`
+  background-color: green;
+  color: white;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 10px;
+  font-size: 12px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darkgreen;
+  }
+`;
 
 class Button extends React.Component{
     constructor(props){
@@ -17,7 +31,7 @@ class Button extends React.Component{
     render(){
         return(
             <div>
-                <button onClick={this.onClickbutton} className="Button">Enviar</button>
+                <StyledButton onClick={this.onClickbutton}>Enviar</StyledButton>
             </div>
         )
     }

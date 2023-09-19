@@ -1,5 +1,12 @@
 import React from "react";
-import '../App.css';
+import styled from 'styled-components';
+
+const StyledInput = styled.input`
+    padding: 13px;
+    font-size: 12px;
+    width: 60%; 
+    border-radius: 10px;
+`;
 
 class Inputtext extends React.Component{
     constructor(props){
@@ -25,10 +32,13 @@ class Inputtext extends React.Component{
     render(){
         return(
             <div>
-                <input type="text" className="text" placeholder="Mensagem" 
-                onChange={this.handleInput1Change}
-                onKeyDown={this.handleKeyDown}>
-                </input>
+                <StyledInput
+                    type="text"
+                    className="text"
+                    placeholder="Mensagem"
+                    onChange={this.handleInput1Change}
+                    onKeyDown={this.handleKeyDown}
+                />
             </div>
         )
     }
