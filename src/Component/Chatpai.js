@@ -10,6 +10,7 @@ class Chatpai extends React.Component {
       valueChild: '',
       valueChild2: '',
       historicoMensagem: [],
+      mensagensApagadas: [], 
     };
   }
 
@@ -32,29 +33,35 @@ class Chatpai extends React.Component {
   validarUsuario = (nomeUsuario) => {
     return nomeUsuario.toLowerCase() === 'eu';
   };
-  
+
   adicionarMensagemAoHistorico = (mensagem, isUsuario) => {
     const novoHistorico = [...this.state.historicoMensagem, { mensagem, isUsuario }];
     this.props.onMensagemChange(novoHistorico);
     this.setState({ historicoMensagem: novoHistorico });
   };
-  
+
   adicionarMensagem = () => {
     const { valueChild, valueChild2 } = this.state;
-    const nomeUsuario = valueChild2.toLowerCase(); // Converta para minúsculas
+    const nomeUsuario = valueChild2.toLowerCase(); 
     const novaMensagem = valueChild;
-  
+
     const isUsuario = this.validarUsuario(nomeUsuario);
-    
-    const mensagemComNome = `${nomeUsuario}\n${novaMensagem}`;
-    
+    const mensagemComNome = `${nomeUsuario}: ${novaMensagem}`;
+
     this.adicionarMensagemAoHistorico(mensagemComNome, isUsuario);
     this.setState({ valueChild: '' });
   };
-  
-  
-  
-  
+
+  apagarMensagem = (index) => {
+    const mensagemApagada = this.state.historicoMensagem[index];
+    const novoHistorico = [...this.state.historicoMensagem];
+    novoHistorico.splice(index, 1);
+
+    this.setState((prevState) => ({
+      historicoMensagem: novoHistorico,
+      mensagensApagadas: [...prevState.mensagensApagadas, mensagemApagada],
+    }));
+  };
 
   render() {
     return (
